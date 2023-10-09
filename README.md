@@ -9,9 +9,24 @@ pack-zipper
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
+* [Usage](#usage)
+* [Commands](#commands)
+<!-- tocstop -->
 
 # Usage
 <!-- usage -->
+```sh-session
+$ npm install -g pack-zipper
+$ pkzip COMMAND
+running command...
+$ pkzip (--version)
+pack-zipper/2.0.0 win32-x64 node-v18.13.0
+$ pkzip --help [COMMAND]
+USAGE
+  $ pkzip COMMAND
+...
+```
+<!-- usagestop -->
 ```sh-session
 $ npm install -g pack-zipper
 $ pkzip COMMAND
