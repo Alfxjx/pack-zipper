@@ -9,7 +9,7 @@ pack-zipper
 * [Commands](#commands)
 <!-- tocstop -->
 
-# Feature Repquest
+# Feature Request
 
 feel free to open a new issue for new features! 
 
