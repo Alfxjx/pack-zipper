@@ -5,13 +5,13 @@ pack-zipper
 [![CircleCI](https://circleci.com/gh/oclif/hello-world/tree/main.svg?style=shield)](https://circleci.com/gh/oclif/hello-world/tree/main)
 [![GitHub license](https://img.shields.io/github/license/oclif/hello-world)](https://github.com/oclif/hello-world/blob/main/LICENSE)
 
-<!-- toc -->
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
-* [Usage](#usage)
-* [Commands](#commands)
-<!-- tocstop -->
+
+# Feature Repquest
+
+feel free to open a new issue for new features! 
 
 # Usage
 
