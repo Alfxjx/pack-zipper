@@ -95,7 +95,7 @@ export default class Zip extends Command {
     let file = '';
     if (type === 'version') {
       const dateStr = moment(new Date(manifest.buildTime)).format('YYYY-MM-DD-HH-mm-ss');
-      file = `${manifest.name}_${manifest.version}_${dateStr}.zip`;
+      file = `${manifest.name}_Windows_${manifest.version}_${dateStr}.zip`;
     } else {
       const dateStr = moment(new Date()).format('YYYYMMDDHHmm');
       file = `${manifest.name}_Windows_${dateStr}.zip`;
