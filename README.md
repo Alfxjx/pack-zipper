@@ -35,15 +35,16 @@ describe the command here
 
 ```
 USAGE
-  $ pkzip zip [FILE] -n <value> [-t <value>] [-d <value>]
+  $ pkzip zip [FILE] -n <value> [-t <value>] [-d <value>] [-a <value>]
 
 ARGUMENTS
   FILE  配置文件地址
 
 FLAGS
-  -d, --dist=<value>  文件目录
-  -n, --name=<value>  (required) name to print
-  -t, --type=<value>  压缩文件名称类型
+  -d, --dist = <value>  文件目录
+  -n, --name = <value>  (required) name to print
+  -t, --type = <value>  压缩文件名称类型
+  -a, --addition = <value>  附加在文件之后的额外信息
 
 DESCRIPTION
   describe the command here

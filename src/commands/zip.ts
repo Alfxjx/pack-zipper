@@ -27,6 +27,8 @@ export default class Zip extends Command {
     type: Flags.string({ char: 't', description: '压缩文件名称类型', required: false }),
     // 配置文件的目录
     dist: Flags.string({ char: 'd', description: '文件目录', required: false }),
+    // 额外信息
+    additions: Flags.string({ char: 'a', description: '额外信息', required: false }),
   }
 
   static args = {
@@ -37,7 +39,7 @@ export default class Zip extends Command {
     const { flags } = await this.parse(Zip)
 
     await ux.action.start(`压缩: ${flags.name}`)
-    await this.doZip(flags.name, flags.type, flags.dist);
+    await this.doZip(flags.name, flags.type, flags.dist, flags.additions );
     await ux.action.stop()
 
 
@@ -53,7 +55,7 @@ export default class Zip extends Command {
     }
   }
 
-  private async doZip(packName: string, type = 'version', dist = 'dist') {
+  private async doZip(packName: string, type = 'version', dist = 'dist', additions = '') {
 
     const zip = new JSZip();
     const cwd = process.cwd();
@@ -95,11 +97,17 @@ export default class Zip extends Command {
     let file = '';
     if (type === 'version') {
       const dateStr = moment(new Date(manifest.buildTime)).format('YYYY-MM-DD-HH-mm-ss');
-      file = `${manifest.name}_Windows_${manifest.version}_${dateStr}.zip`;
+      file = `${manifest.name}_Windows_${manifest.version}_${dateStr}`;
     } else {
       const dateStr = moment(new Date()).format('YYYYMMDDHHmm');
-      file = `${manifest.name}_Windows_${dateStr}.zip`;
+      file = `${manifest.name}_Windows_${dateStr}`;
     }
+
+    if(additions) {
+      file = `${file}_${additions}`;
+    }
+
+    file = `${file}.zip`;
 
     fs.writeFileSync(`${cwd}\\${dist}\\${file}`, buffer);
     return `${cwd}\\${dist}\\${file}`;
