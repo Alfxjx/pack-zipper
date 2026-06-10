@@ -10,8 +10,10 @@
           ],
           "program": "${workspaceFolder}/bin/dev.js",
           "args": [
-            "hello",
-            "world",
+            "zip",
+            "./dist/sample",
+            "--version",
+            "1.0.0"
           ],
       }
   ]

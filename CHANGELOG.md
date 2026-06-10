@@ -1,3 +1,25 @@
+# [3.0.0-beta.1](https://github.com/alfxjx/pack-zipper/compare/2.0.1...3.0.0-beta.1) (2026-06-10)
+
+### ⚠ BREAKING CHANGES
+
+- **不再读取 `manifest.json`**:所有元数据(name / version / buildTime / branch / commit)由 CLI 参数显式传入,缺省时从 `SOURCE/package.json` 和当前目录的 git 仓库自动推断
+- 移除 `--dist` flag,改用位置参数 `SOURCE` 指定要打包的源目录
+- 移除 `--name` 的隐式子目录定位语义;`--name` 现在是产物的"产物名"片段
+- 移除 `args.file`(死代码)
+
+### Features
+
+- 自动从 `SOURCE/package.json` 推断 name / version,可通过 `--no-pkg` 关闭
+- 自动从 `git rev-parse` 推断 branch / commit,可通过 `--no-git` 关闭(失败时退化为 `"unknown"`)
+- 新增 `--build-time` / `--branch` / `--commit` 显式 flag
+- 新增 `--output` 指定 zip 落点
+- 新增 `--exclude`(可多次传)与 `--clean`
+- 路径安全:符号链接不跟随,cycle 防护,深度/大小上限;`--name` / `--version` 字符白名单校验;`--output` 不能位于 SOURCE 内部
+- spinner 资源不再泄漏(try/finally 包裹)
+- 成功时输出汇总(源路径、输出路径、文件数、总大小)
+- 清理 oclif hello-world 模板残留(`oclif.topics.hello`、`@oclif/plugin-plugins`、`describe the command here` 占位、模板测试)
+
+
 ## [0.4.1](https://github.com/oclif/hello-world/compare/0.4.0...0.4.1) (2023-10-04)
 
 
