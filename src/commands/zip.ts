@@ -267,7 +267,7 @@ export default class Zip extends Command {
           continue
         }
 
-        zip.file(relPath, data)
+        zip.file(relPath, new Uint8Array(data))
         fileCount++
         totalBytes += stat.size
       }
@@ -327,7 +327,7 @@ export default class Zip extends Command {
 
     const filename = this.buildFilename(meta, flags.type ?? 'version')
     const outputPath = path.join(outputDir, filename)
-    fs.writeFileSync(outputPath, buffer)
+    fs.writeFileSync(outputPath, new Uint8Array(buffer))
 
     return { source, outputPath, fileCount, totalBytes, warnings }
   }
